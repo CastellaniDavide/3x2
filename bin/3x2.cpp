@@ -1,42 +1,34 @@
-/**
- * @file 3x2.cpp
- *
- * @version 01.01 2021519
- *
- * @brief https://training.olinfo.it/#/task/ois_3x2/statement
- *
- * @ingroup 3x2
- * (Note: this needs exactly one @defgroup somewhere)
- *
- * @author Castellani Davide
- *
- * Contact: contacts@castellanidavide.it
- *
- */
-
-// Includes
 #include <bits/stdc++.h>
 using namespace std;
 
-// Variabiles
-int N;
+#define DEBUG
 
-// Main code
-int main()
-{
-  // Cncomment the following lines if you want to read/write from files
-  // freopen("input.txt", "r", stdin);
-  // freopen("output.txt", "w", stdout);
+int N, sol, takei;
+vector <int> pieces;
 
-  // Input
-  cin >> N;
+bool mysort(int a, int b) {
+    return a > b;
+}
 
-  // Code
-  // ...
+int main() {
+    //freopen("input.txt", "r", stdin);
+    //freopen("output.txt", "w", stdout);
 
-  // Output
-  cout << N << endl;
+    cin >> N;
+    pieces.resize(N);
+    sol = 0;
+    takei = 0;
 
-  // End
-  return 0;
+    for (size_t i = 0; i < N; ++i)
+        cin >> pieces[i];
+
+    sort(pieces.begin(), pieces.end(), mysort);
+
+    for (size_t i = 0; i < N; ++i) {
+        if (takei != 2)
+            sol += pieces[i];
+        takei = (takei + 1) % 3;
+    }
+
+    cout << sol << endl;
 }
