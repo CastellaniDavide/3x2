@@ -11,8 +11,8 @@ bool mysort(int a, int b) {
 }
 
 int main() {
-    //freopen("input.txt", "r", stdin);
-    //freopen("output.txt", "w", stdout);
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
 
     cin >> N;
     pieces.resize(N);
